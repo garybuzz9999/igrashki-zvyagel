@@ -36,7 +36,7 @@
   const auth=firebase.auth();
 </script>
 <script>
-let IG_PRICES={publish:10,renew:10,active_days:28,inactive_days:28};
+let IG_PRICES={publish:0,renew:0,active_days:28,inactive_days:28};
 async function loadIGPrices(){
   try{
     const snap=await db.collection('ig_config').doc('prices').get();
@@ -366,7 +366,7 @@ loadIGPrices();
 </div>
 
 <!-- TOPUP MODAL -->
-<div class="overlay" id="topupModal" onclick="closeOverlay(event,'topupModal')">
+<div class="overlay" id="topupModal" style="display:none!important" onclick="closeOverlay(event,'topupModal')">
   <div class="modal modal-sm" onclick="event.stopPropagation()">
     <div class="modal-head">
       <h2>Поповнити рахунок</h2>
@@ -601,7 +601,7 @@ loadIGPrices();
         </div>
       </div>
 
-      <div id="balanceBlock" style="display:none;margin-top:1rem;padding:12px 14px;background:var(--bg);border-radius:var(--radius-sm)">
+      <div id="balanceBlock" style="display:none!important;margin-top:1rem;padding:12px 14px;background:var(--bg);border-radius:var(--radius-sm)">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
           <span style="font-size:13px;color:var(--text-muted)">Ваш баланс</span>
           <span style="font-size:15px;font-weight:700;font-family:'Unbounded',sans-serif" id="addBalance">0 грн</span>
@@ -611,7 +611,7 @@ loadIGPrices();
       </div>
 
       <!-- БАЛАНС -->
-      <div id="balanceBlock" style="display:none;margin-top:1rem;padding:12px 14px;background:var(--bg);border-radius:var(--radius-sm)">
+      <div id="balanceBlock" style="display:none!important;margin-top:1rem;padding:12px 14px;background:var(--bg);border-radius:var(--radius-sm)">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
           <span style="font-size:13px;color:var(--text-muted)">Ваш баланс</span>
           <span style="font-size:15px;font-weight:700;font-family:'Unbounded',sans-serif" id="addBalance">0 грн</span>
