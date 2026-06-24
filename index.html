@@ -801,7 +801,7 @@ async function doLogin(){
   const phone=document.getElementById('loginPhone').value.trim();
   const pass=document.getElementById('loginPass').value;
   if(!phone){toast('Введіть телефон');return;}
-  const fakeEmail=phone.replace(/\D/g,'')+`@ig.zvyagel`;
+  const fakeEmail=phone.replace(/\D/g,'')+`@zvyagel.online`;
   try{
     await auth.signInWithEmailAndPassword(fakeEmail,pass);
     closeModal('loginModal');
@@ -816,7 +816,7 @@ async function doRegister(){
   if(!name){toast('Введіть ім\'я');return;}
   if(!phone||phone.length<10){toast('Введіть правильний телефон');return;}
   if(!pass||pass.length<6){toast('Пароль мінімум 6 символів');return;}
-  const fakeEmail=phone.replace(/\D/g,'')+`@ig.zvyagel`;
+  const fakeEmail=phone.replace(/\D/g,'')+`@zvyagel.online`;
   try{
     const cred=await auth.createUserWithEmailAndPassword(fakeEmail,pass);
     await db.collection('ig_users').doc(cred.user.uid).set({name,phone,balance:0,blocked:false,createdAt:Date.now()});
